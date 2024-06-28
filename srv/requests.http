@@ -1,0 +1,15 @@
+### GET Certifications
+GET http://localhost:4004/service/certification/Certifications?$count=true&$select=ID,code,name
+Accept:application/json;odata.metadata=minimal;IEEE754Compatible=true
+Accept-Language:en-US
+Content-Type:application/json;charset=UTF-8;IEEE754Compatible=true
+
+
+### PATCH Units
+PATCH http://localhost:4004/service/certification/Units(38481372-194b-45cd-b1bc-4dad0d2f13fb) 
+Accept:application/json;odata.metadata=minimal;IEEE754Compatible=true
+Accept-Language:en-US
+If-Match:*
+Content-Type:application/json;charset=UTF-8;IEEE754Compatible=true
+
+{"content":null}

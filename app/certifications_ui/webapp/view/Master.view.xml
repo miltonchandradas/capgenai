@@ -1,0 +1,72 @@
+<mvc:View controllerName="certificationsui.controller.Master"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <f:DynamicPage id="dynamicMasterPageId" headerExpanded="true" toggleHeaderOnTitleClick="true" busy="{viewModel>/busy}" class="sapUiSizeCozy" showFooter="true">
+
+        <!-- DynamicPage Title - Always visible -->
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <HBox alignItems="Center">
+                        <Title text="SAP Certifications" />
+                    </HBox>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <!-- DynamicPage Header - Collapsible and Expandable -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="true">
+            <Toolbar>
+                        
+                        <SearchField
+                            id="searchField"
+                            search="onSearch"
+                            placeholder="Search" 
+                            width="500px"/>
+                            <ToolbarSpacer />
+                        
+                    </Toolbar>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table id="masterTable" items="{/Certifications}" alternateRowColors="true"  noDataText="No certifications found !!" showSeparators="All">
+
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="SAP Certifications" />
+                        <ToolbarSpacer />
+                        <Button text="Excel Download"></Button>
+                    </Toolbar>
+
+                </headerToolbar>
+
+                <columns>
+                    <Column>
+                        <Text text="Certification Code" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Certification Name" />
+                    </Column>
+
+                </columns>
+
+                <items>
+                    <ColumnListItem type="Navigation" press=".onItemPress">
+                        <cells>
+                            <ObjectIdentifier title="{code}" text="Version: {version}"/>
+                            <Text text="{name}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+        <!-- DynamicPage Footer - Optional -->
+        <f:footer>
+
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>

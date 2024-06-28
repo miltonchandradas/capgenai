@@ -1,0 +1,26 @@
+{
+  "name": "capcertification",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "express": "^4",
+    "multer": "^1.4.5-lts.1",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "^1.120.13"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-certificationsui": "cds watch --open certificationsui/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-certifications_ui": "cds watch --open certifications_ui/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/certificationsui"
+  ]
+}

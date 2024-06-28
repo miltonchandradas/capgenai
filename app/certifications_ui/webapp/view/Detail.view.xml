@@ -1,0 +1,65 @@
+<mvc:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:uxap="sap.uxap"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout" controllerName="certificationsui.controller.Detail"
+	xmlns:html="http://www.w3.org/1999/xhtml" height="100%">
+	<Page id="detailPage">
+		<uxap:ObjectPageLayout id="ObjectPageLayout" selectedSection="section1_Units" useIconTabBar="true" showTitleInHeaderContent="true" beforeNavigate=".onBeforeNavigate" sectionChange=".onSectionChange" upperCaseAnchorBar="false" showFooter="true" busy="{viewModel>/busy}" class="sapUiSizeCozy">
+			<uxap:headerTitle>
+				<uxap:ObjectPageDynamicHeaderTitle>
+                    <uxap:heading>
+                        <HBox alignItems="Center">
+                            <Title text="SAP Certifications"/>
+                        </HBox>
+		            </uxap:heading>
+                </uxap:ObjectPageDynamicHeaderTitle>
+			</uxap:headerTitle>
+			<uxap:sections>
+				<uxap:ObjectPageSection id="section1_Units" title="Certification Units" titleUppercase="false">
+                <uxap:ObjectPageSubSection>
+					 <Table id="unitsTable" items="{path: '/Units', sorter: {path: 'code', descending: false}}">
+                        <columns>
+                            <Column>
+                                <Text text="Unit"></Text>
+                            </Column>
+                            <Column>
+                                <Text text="Unit Name"></Text>
+                            </Column>
+                            <Column visible="false">
+                                <Text text="Unit Content"></Text>
+                            </Column>
+                            <Column >
+                                <Text text="Upload PDF"></Text>
+                            </Column>
+                            <Column>
+                                <Text text="Generate Questions"></Text>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem >
+                                <cells>
+                                    <Text text="{code}"/>
+                                    <Text text="{name}"></Text>
+                                    <Text text="{content}"></Text>
+                                    <Button id="btnUpload" icon="sap-icon://upload" press=".onUploadPDF"/>
+                                    <Button id="btnGenerate" icon="sap-icon://create" press=".onGenerateQuestions"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    </uxap:ObjectPageSubSection>
+				</uxap:ObjectPageSection>
+			</uxap:sections>
+			<uxap:footer>
+				<OverflowToolbar>
+					
+					<ToolbarSpacer/>
+
+				</OverflowToolbar>
+			</uxap:footer>
+		</uxap:ObjectPageLayout>
+	</Page>
+</mvc:View>
